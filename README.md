@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/public/img/Canoe-Logo.svg" width="400" alt="Canoe Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/public/img/canoe-logo.svg" width="400" alt="Canoe Logo"></a></p>
 
 ## Canoe - Developer Test Application
 ### Investment Funds Management System
