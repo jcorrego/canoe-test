@@ -24,6 +24,9 @@ class StoreFundRequest extends FormRequest
         return [
             'name' => 'required|string',
             'start_year' => 'required|integer',
+            'manager_id' => 'required|exists:managers,id',
+            'aliases' => 'nullable|array',
+            'companies' => 'nullable|array',
         ];
     }
 }

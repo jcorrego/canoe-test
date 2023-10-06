@@ -22,7 +22,11 @@ class UpdateFundRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'string',
+            'start_year' => 'integer',
+            'manager_id' => 'exists:managers,id',
+            'aliases' => 'nullable|array',
+            'companies' => 'nullable|array',
         ];
     }
 }

@@ -35,19 +35,20 @@ class FundController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(StoreFundRequest $request)
     {
-        dump($request->all());
+        $fund = new Fund();
+        $fund->name = $request->input('name');
+        $fund->start_year = $request->input('start_year');
+        $fund->manager_id = $request->input('manager_id');
+        $fund->save();
+        foreach ($request->input('aliases') as $alias) {
+            $fund->aliases()->create(['name' => $alias]);
+        }
+        $fund->companies()->sync($request->input('companies'));
+        return new FundResource($fund);
     }
 
     /**
@@ -59,19 +60,33 @@ class FundController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Fund $fund)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateFundRequest $request, Fund $fund)
     {
-        dump($request->all());
+        if ($request->has('name')) {
+            $fund->name = $request->input('name');
+        }
+        if ($request->has('start_year')) {
+            $fund->start_year = $request->input('start_year');
+        }
+        if ($request->has('manager_id')) {
+            $fund->manager_id = $request->input('manager_id');
+        }
+        $fund->save();
+        if ($request->has('aliases')) {
+            $fund->aliases()->delete();
+            foreach ($request->input('aliases') as $alias) {
+                $fund->aliases()->create(['name' => $alias]);
+            }
+        }
+        if ($request->has('companies')) {
+            $fund->companies()->detach();
+            $fund->companies()->sync($request->input('companies'));
+        }
+
+        return new FundResource($fund);
+
     }
 
     /**
@@ -79,6 +94,7 @@ class FundController extends Controller
      */
     public function destroy(Fund $fund)
     {
-        //
+        $fund->delete();
+        return response()->noContent();
     }
 }
