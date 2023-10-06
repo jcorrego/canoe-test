@@ -10,6 +10,8 @@ class Alias extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     /**
      * Get the fund that owns the alias.
      */
