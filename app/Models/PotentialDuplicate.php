@@ -19,7 +19,7 @@ class PotentialDuplicate extends Model
     }
 
     /**
-     * Get the Duplcated fund.
+     * Get the Duplicated fund.
      */
     public function duplicateFund(): BelongsTo
     {

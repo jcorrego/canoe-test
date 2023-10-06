@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/public/img/Canoe-Logo.svg" width="400" alt="Canoe Logo"></a></p>
+<p align="center"><a href="#" target="_blank"><img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/public/img/Canoe-Logo.svg" width="400" alt="Canoe Logo"></a></p>
 
 ## Canoe - Developer Test Application
 ### Investment Funds Management System
@@ -78,3 +78,6 @@ Ensure your .env.testing (if you have one) has the right configurations for your
 - Interface listings are already paginated to be prepared for
 - Consider caching for frequently accessed data to reduce database load.
 - For future enhancements, consider adding a rate-limiting feature for API requests.
+
+#### Documentation
+<img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/resources/docs/dbd.png" width="100%" alt="ER Diagram">
