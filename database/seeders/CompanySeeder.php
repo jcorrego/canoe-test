@@ -13,7 +13,7 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         \App\Models\Company::factory()
-            ->count(10)
+            ->count(100)
             ->create();
     }
 }

@@ -15,7 +15,7 @@ class FundSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Fund::factory(10)
+        \App\Models\Fund::factory(100)
             ->state(new Sequence(
                 fn (Sequence $sequence) => ['manager_id' => Manager::all()->random()->id],
             ))
