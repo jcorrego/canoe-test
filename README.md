@@ -12,6 +12,7 @@ An application designed for efficient administration of investment funds, with f
 - Composer
 - MySQL (or your preferred database system)
 #### Installation
+
 Clone the repository:
 ```bash
 git clone https://github.com/jcorrego/canoe-test
@@ -56,11 +57,11 @@ php artisan serve
 The application should now be accessible at http://localhost.
 
 #### Usage
-With the provided sample data, there is a user already created for you to login and test all functionallity:
-```
-user: admin@canoe-test.test
-passwd: qg8MQzP@cN // Yes, its better to copy-paste it.
-```
+This a backend only prototype, so no interface is provided. All routes are inside the `/api` space.
+No authentication is present for simplicity.
+
+The best way to test the available services is to use the postman collection available here:
+https://www.postman.com/solar-moon-680700/workspace/canoe-test/folder/357302-70a72f42-ebd0-4c78-b3b5-583e92fb9977?action=share&creator=357302&ctx=documentation
 
 #### Testing
 
@@ -75,7 +76,7 @@ Ensure your .env.testing (if you have one) has the right configurations for your
 #### Scalability and Performance Considerations
 
 - Database tables have been indexed appropriately for fast lookups.
-- Interface listings are already paginated to be prepared for
+- Listings are already paginated to be prepared for large datasets.
 - Consider caching for frequently accessed data to reduce database load.
 - For future enhancements, consider adding a rate-limiting feature for API requests.
 
