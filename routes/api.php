@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// For simplicity, the API routes are created without any authentication.
+Route::apiResource('funds', 'App\Http\Controllers\FundController');
