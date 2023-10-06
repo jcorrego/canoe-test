@@ -28,6 +28,8 @@ Copy .env.example to .env and configure the database connection details:
 cp .env.example .env
 ```
 
+> Note: I'm not including instructions on how to setup the database here, because i assume you already have that knowledge and it depends on your environment setup.
+
 Run migrations to set up the database:
 ```bash
 php artisan migrate
@@ -37,6 +39,9 @@ Run initial seeders to get some sample data in the database:
 ```bash
 php artisan db:seed
 ```
+
+> Note: if you need to reset the DB to the initial state you can run the following command:
+`php artisan migrate:fresh --seed`
 
 Generate an application key:
 ```bash
