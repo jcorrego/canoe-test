@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('aliases', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->foreignIdFor(Fund::class)
                 ->constrained()
                 ->cascadeOnUpdate()
