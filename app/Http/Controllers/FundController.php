@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFundRequest;
 use App\Http\Requests\UpdateFundRequest;
 use App\Http\Resources\FundResource;
+use App\Http\Resources\PotentialDuplicateResource;
 use App\Models\Fund;
+use App\Models\PotentialDuplicate;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class FundController extends Controller
@@ -96,5 +98,14 @@ class FundController extends Controller
     {
         $fund->delete();
         return response()->noContent();
+    }
+
+    /**
+     * Display a listing of the potential duplicates.
+     */
+    public function duplicates()
+    {
+        $potentialDuplicates = PotentialDuplicate::with('originalFund', 'duplicateFund')->paginate();
+        return PotentialDuplicateResource::collection($potentialDuplicates);
     }
 }

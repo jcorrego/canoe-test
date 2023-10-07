@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 // For simplicity, the API routes are created without any authentication.
 Route::apiResource('funds', 'App\Http\Controllers\FundController');
+Route::get('duplicates', 'App\Http\Controllers\FundController@duplicates');
