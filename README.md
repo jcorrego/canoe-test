@@ -100,14 +100,19 @@ php artisan test
 ```
 <img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/resources/docs/tests.png" width="100%" alt="Test results">
 
-Ensure your .env.testing (if you have one) has the right configurations for your testing database.
+Ensure your `.env.testing` (if you have one) has the right configurations for your testing database.
 
-#### Scalability and Performance Considerations
+### Scalability and Performance Considerations
 
 - Database tables have been indexed appropriately for fast lookups.
 - Listings are already paginated to be prepared for large datasets.
 - Consider caching for frequently accessed data to reduce database load.
 - For future enhancements, consider adding a rate-limiting feature for API requests.
+- Aliases are probably ok to be included as a _json_ column in the `funds` table, because this is probably one
+  table that can grow exponentially, that should be joined all the time, and that those are probably unique
+  by `Fund`, so no index benefit as independent table.
+- Potential duplicates have a status value that allows to mark some records as "ignored" or "solved", so it should be
+  good to think on a scheduled process that takes care of cleaning some old records in that table.
 
 ### DB diagram
 <img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/resources/docs/dbd.png" width="100%" alt="ER Diagram">
