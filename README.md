@@ -98,6 +98,7 @@ To run tests for the application:
 ```bash
 php artisan test
 ```
+<img src="https://raw.githubusercontent.com/jcorrego/canoe-test/main/resources/docs/tests.png" width="100%" alt="Test results">
 
 Ensure your .env.testing (if you have one) has the right configurations for your testing database.
 
