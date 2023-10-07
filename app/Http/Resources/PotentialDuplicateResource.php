@@ -16,6 +16,7 @@ class PotentialDuplicateResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'status' => $this->status,
             'original_fund' => new FundResource($this->originalFund),
             'duplicate_fund' => new FundResource($this->duplicateFund),
         ];

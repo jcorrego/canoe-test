@@ -27,18 +27,18 @@ class Fund extends Model
                 if ($fund->id === $otherFund->id) {
                     return;
                 }
-                if (Str::of($fund->name)->lower() === Str::of($otherFund->name)->lower()) {
+                if (strtolower($fund->name) === strtolower($otherFund->name)) {
                     event(new DuplicateFundWarning($fund, $otherFund));
                     return;
                 }
                 $fund->aliases->each(function (Alias $alias) use ($fund, $otherFund) {
-                    if (Str::of($alias->name)->lower() === Str::of($otherFund->name)->lower()) {
+                    if (strtolower($alias->name) === strtolower($otherFund->name)) {
                         event(new DuplicateFundWarning($fund, $otherFund));
                         return;
                     }
                 });
                 $otherFund->aliases->each(function (Alias $alias) use ($fund, $otherFund) {
-                    if (Str::of($alias->name)->lower() === Str::of($fund->name)->lower()) {
+                    if (strtolower($alias->name) === strtolower($fund->name)) {
                         event(new DuplicateFundWarning($fund, $otherFund));
                         return;
                     }
