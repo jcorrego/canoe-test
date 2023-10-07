@@ -46,7 +46,7 @@ class FundController extends Controller
         $fund->start_year = $request->input('start_year');
         $fund->manager_id = $request->input('manager_id');
         $fund->save();
-        foreach ($request->input('aliases') as $alias) {
+        foreach ($request->input('aliases', []) as $alias) {
             $fund->aliases()->create(['name' => $alias]);
         }
         $fund->companies()->sync($request->input('companies'));
@@ -78,7 +78,7 @@ class FundController extends Controller
         $fund->save();
         if ($request->has('aliases')) {
             $fund->aliases()->delete();
-            foreach ($request->input('aliases') as $alias) {
+            foreach ($request->input('aliases', []) as $alias) {
                 $fund->aliases()->create(['name' => $alias]);
             }
         }
