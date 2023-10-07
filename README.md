@@ -31,6 +31,17 @@ https://www.postman.com/solar-moon-680700/workspace/canoe-test/folder/357302-70a
 In that collection you can find samples of the different filters, updates, etc.
 
 And the demo site available here: https://canoe.orrego.dev
+
+### Testing Potential Duplicates
+
+For testing the potential duplicates functionality, you can follow the next steps:
+1. Query for potential duplicates, it should be empty at first. `/api/duplicates`
+2. Query all funds using the `/api/funds` endpoint.
+3. Copy the exact name of the first Fund, and take note of the manager id.
+4. Use the create Fund endpoint (POST `api/funds`) with the name and the manager_id from the previous step.
+5. Query for duplicates again and you should see 1 record.
+6. You can repeat the process using aliases and it should work the same.
+
 #### Prerequisites
 - PHP >= 8.1
 - Composer
